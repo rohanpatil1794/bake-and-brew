@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Bake and Brew — Warm Artisan palette (see docs/DESIGN_PROPOSAL.md §1.2) */
+  --color-primary: #92400e;
+  --color-primary-hover: #7c3608;
+  --color-secondary: #b45309;
+  --color-caramel: #c67b5c;
+  --color-background: #fdf6ec;
+  --color-surface: #fffbf5;
+  --color-sand: #f0e2ce;
+  --color-border-warm: #e7d5bf;
+  --color-espresso: #3d2314;
+  --color-muted: #78350f;
+  --color-cream: #fffbf5;
+  --color-success: #4d7c4a;
+  --color-error: #b3402a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-raleway), system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-warm: 0 4px 20px rgba(120, 53, 15, 0.08);
+  --shadow-warm-lg: 0 12px 40px rgba(120, 53, 15, 0.14);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background: var(--color-caramel);
+  color: var(--color-cream);
+}
+
+/* Subtle handmade grain for hero/section backdrops */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
