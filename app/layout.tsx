@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
+import { CartDrawer } from "@/components/cart/cart-drawer";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CartDrawer />
       </body>
     </html>
   );

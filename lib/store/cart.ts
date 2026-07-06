@@ -50,3 +50,22 @@ export const useCart = create<CartState>()(
 
 export const useCartCount = () =>
   useCart((s) => s.items.reduce((sum, i) => sum + i.quantity, 0));
+
+export const useCartTotal = () =>
+  useCart((s) => s.items.reduce((sum, i) => sum + i.price * i.quantity, 0));
+
+/** Drawer visibility — session-only UI state, deliberately not persisted. */
+type CartDrawerState = {
+  open: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
+};
+
+export const useCartDrawer = create<CartDrawerState>()((set) => ({
+  open: false,
+  openDrawer: () => set({ open: true }),
+  closeDrawer: () => set({ open: false }),
+}));
+
+export const DELIVERY_FEE = 49;
+export const FREE_DELIVERY_ABOVE = 999;

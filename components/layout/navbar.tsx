@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Croissant, Menu, ShoppingBag, X } from "lucide-react";
 import { site } from "@/lib/site";
-import { useCartCount } from "@/lib/store/cart";
+import { useCartCount, useCartDrawer } from "@/lib/store/cart";
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const openDrawer = useCartDrawer((s) => s.openDrawer);
 
   // Cart count is read after mount to avoid hydration mismatch with persisted state
   const count = useCartCount();
@@ -60,10 +61,11 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/cart"
-            aria-label={`Cart, ${mounted ? count : 0} items`}
-            className="relative rounded-full border border-border-warm bg-surface p-2.5 text-espresso transition-colors duration-200 hover:border-primary hover:text-primary"
+          <button
+            type="button"
+            onClick={openDrawer}
+            aria-label={`Open cart, ${mounted ? count : 0} items`}
+            className="relative cursor-pointer rounded-full border border-border-warm bg-surface p-2.5 text-espresso transition-colors duration-200 hover:border-primary hover:text-primary"
           >
             <ShoppingBag className="h-5 w-5" aria-hidden />
             <AnimatePresence>
@@ -80,7 +82,7 @@ export function Navbar() {
                 </motion.span>
               )}
             </AnimatePresence>
-          </Link>
+          </button>
 
           <button
             type="button"
