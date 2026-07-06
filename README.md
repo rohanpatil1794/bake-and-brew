@@ -7,7 +7,7 @@ An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cake
 ## Features
 
 - [x] Design system, layout shell, navbar, footer, animated hero *(milestone ①)*
-- [ ] Signature cake cards with shared-element detail transitions
+- [x] Signature cake cards with shared-element detail transitions *(milestone ②)*
 - [ ] Cafe menu with cart & delivery checkout flow
 - [ ] Table booking with calendar & time slots
 - [ ] Custom photo-print cake with live draggable preview
