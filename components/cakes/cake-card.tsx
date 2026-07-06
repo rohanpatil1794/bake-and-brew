@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { formatPrice, type Cake } from "@/lib/data/cakes";
+import type { Cake } from "@/lib/data/cakes";
+import { formatPrice } from "@/lib/format";
 import { CakeArt } from "@/components/cakes/cake-art";
 
 export function CakeCard({

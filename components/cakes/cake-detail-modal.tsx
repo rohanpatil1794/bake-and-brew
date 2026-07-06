@@ -11,7 +11,8 @@ import {
   WheatOff,
   X,
 } from "lucide-react";
-import { formatPrice, type Cake } from "@/lib/data/cakes";
+import type { Cake } from "@/lib/data/cakes";
+import { formatPrice } from "@/lib/format";
 import { CakeArt } from "@/components/cakes/cake-art";
 import { useCart } from "@/lib/store/cart";
 

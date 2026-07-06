@@ -203,7 +203,3 @@ const cakes: Cake[] = [
 export async function getCakes(): Promise<Cake[]> {
   return cakes;
 }
-
-export function formatPrice(price: number): string {
-  return `₹${price.toLocaleString("en-IN")}`;
-}
