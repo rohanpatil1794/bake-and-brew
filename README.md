@@ -10,7 +10,7 @@ An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cake
 - [x] Signature cake cards with shared-element detail transitions *(milestone ②)*
 - [x] Cafe menu with cart & delivery checkout flow *(milestone ③)*
 - [x] Table booking with calendar & time slots *(milestone ④)*
-- [ ] Custom photo-print cake with live draggable preview
+- [x] Custom photo-print cake with live draggable preview *(milestone ⑤)*
 - [ ] Cake Studio — interactive layer-by-layer cake configurator
 
 ## Tech Stack
