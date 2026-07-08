@@ -2,6 +2,8 @@
 
 An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cakes, cafe food delivery, table booking, and an interactive cake design studio.
 
+**🔗 Live demo: [bake-and-brew-jade.vercel.app](https://bake-and-brew-jade.vercel.app)**
+
 **Design language:** light "Warm Artisan" theme — warm browns on cream, Lora + Raleway typography, and Framer Motion throughout. Full design rationale in [docs/DESIGN_PROPOSAL.md](docs/DESIGN_PROPOSAL.md).
 
 ## Features
