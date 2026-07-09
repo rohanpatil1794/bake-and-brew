@@ -42,6 +42,18 @@ h4 {
   color: var(--color-cream);
 }
 
+/* Global safety net: honour reduced-motion even where JS hasn't caught it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Subtle handmade grain for hero/section backdrops */
 .grain::before {
   content: "";
