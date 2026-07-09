@@ -74,9 +74,17 @@ export default function RootLayout({
       className={`${lora.variable} ${raleway.variable} ${dancingScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:font-semibold focus:text-cream focus:shadow-warm-lg"
+        >
+          Skip to content
+        </a>
         <ScrollProgress />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <CartDrawer />
       </body>
