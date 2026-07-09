@@ -14,4 +14,9 @@ export const site = {
   ],
   address: "42 Cinnamon Lane, Pune, MH 411001",
   phone: "+91 98765 43210",
+  socials: [
+    { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+    { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
+    { label: "X", href: "https://x.com", icon: "x" },
+  ],
 } as const;
