@@ -4,6 +4,13 @@ An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cake
 
 **🔗 Live demo: [bake-and-brew-jade.vercel.app](https://bake-and-brew-jade.vercel.app)**
 
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![Motion](https://img.shields.io/badge/Motion-v12-FF4D8D?logo=framer&logoColor=white)
+![Deployed on Vercel](https://img.shields.io/badge/Vercel-live-000000?logo=vercel&logoColor=white)
+
 **Design language:** light "Warm Artisan" theme — warm browns on cream, Lora + Raleway typography, and Framer Motion throughout. Full design rationale in [docs/DESIGN_PROPOSAL.md](docs/DESIGN_PROPOSAL.md).
 
 ## Features
