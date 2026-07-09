@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Dancing_Script, Lora, Raleway } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
@@ -57,6 +57,10 @@ export const metadata: Metadata = {
     title: "Bake and Brew — Artisan Bakery & Cafe",
     description,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#92400e",
 };
 
 export default function RootLayout({
