@@ -24,13 +24,39 @@ const dancingScript = Dancing_Script({
   weight: ["600"],
 });
 
+const siteUrl = "https://bake-and-brew-jade.vercel.app";
+const description =
+  "Artisan cakes, custom photo-print cakes, fresh cafe food delivered, and a cozy table waiting for you. Baked with love, brewed with care.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Bake and Brew — Artisan Bakery & Cafe",
     template: "%s · Bake and Brew",
   },
-  description:
-    "Artisan cakes, custom photo-print cakes, fresh cafe food delivered, and a cozy table waiting for you. Baked with love, brewed with care.",
+  description,
+  keywords: [
+    "bakery",
+    "cafe",
+    "custom cakes",
+    "photo print cake",
+    "cake delivery",
+    "table booking",
+    "Pune",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: "Bake and Brew",
+    title: "Bake and Brew — Artisan Bakery & Cafe",
+    description,
+    url: siteUrl,
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bake and Brew — Artisan Bakery & Cafe",
+    description,
+  },
 };
 
 export default function RootLayout({
