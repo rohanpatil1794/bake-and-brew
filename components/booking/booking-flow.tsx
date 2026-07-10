@@ -365,9 +365,9 @@ export function BookingFlow() {
         </div>
       </div>
 
-      {/* Live summary rail */}
-      <aside className="hidden lg:block">
-        <div className="sticky top-32 rounded-3xl border border-border-warm bg-surface p-6 shadow-warm">
+      {/* Live summary rail — full-width card on small screens, sticky rail on desktop */}
+      <aside className="min-w-0">
+        <div className="rounded-3xl border border-border-warm bg-surface p-6 shadow-warm lg:sticky lg:top-32">
           <h2 className="text-lg font-semibold text-espresso">Your table</h2>
           <ul className="mt-4 space-y-3 text-sm">
             <SummaryLine done={partySize !== null}>
