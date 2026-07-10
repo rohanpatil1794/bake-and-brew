@@ -106,10 +106,10 @@ export function CartDrawer() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, x: prefersReducedMotion ? 0 : 40 }}
                         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex items-center gap-3 border-b border-border-warm/60 py-4 last:border-b-0"
+                        className="flex flex-wrap items-center gap-3 border-b border-border-warm/60 py-4 last:border-b-0"
                       >
-                        <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm font-semibold text-espresso">
+                        <div className="w-full min-w-0 sm:w-auto sm:flex-1">
+                          <p className="text-sm font-semibold text-espresso sm:truncate">
                             {item.name}
                           </p>
                           <p className="mt-0.5 text-xs text-muted">
@@ -139,7 +139,7 @@ export function CartDrawer() {
                           </button>
                         </div>
 
-                        <p className="w-16 text-right text-sm font-semibold text-espresso">
+                        <p className="flex-1 text-right text-sm font-semibold text-espresso sm:w-16 sm:flex-none">
                           {formatPrice(item.price * item.quantity)}
                         </p>
 
