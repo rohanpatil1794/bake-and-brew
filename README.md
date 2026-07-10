@@ -42,6 +42,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Responsive
+
+Built mobile-first and verified with an automated overflow sweep across every page at **320, 375, 414, 768, 1024 and 1440px**, plus landscape phones (667×375). No page scrolls horizontally at any size.
+
+| Device | Behaviour |
+|---|---|
+| Phone (320–639px) | Single column, hamburger nav, cart drawer line items stack, calendar cells meet the WCAG 2.5.8 AA 24px touch minimum |
+| Landscape phone | Cake detail modal splits into two columns so the order button stays reachable |
+| Tablet (768–1023px) | Cake Studio pairs the live preview beside its options; menu and cake grids go two-up |
+| Laptop / desktop (≥1024px) | Full nav bar, three-column Cake Studio, sticky summary rails |
+
 ## Accessibility & Quality
 
-Every page targets WCAG AA contrast, visible focus states, keyboard navigation, and respects `prefers-reduced-motion`. The pre-delivery checklist lives in the [design proposal](docs/DESIGN_PROPOSAL.md#5-pre-delivery-quality-checklist).
+Every page targets WCAG AA contrast, visible focus states, keyboard navigation, a skip-to-content link, and respects `prefers-reduced-motion`. The pre-delivery checklist lives in the [design proposal](docs/DESIGN_PROPOSAL.md#5-pre-delivery-quality-checklist).
