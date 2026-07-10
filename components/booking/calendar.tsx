@@ -61,7 +61,7 @@ export function Calendar({
   ];
 
   return (
-    <div className="w-full max-w-sm rounded-3xl border border-border-warm bg-surface p-5 shadow-warm">
+    <div className="w-full max-w-sm rounded-3xl border border-border-warm bg-surface p-3 shadow-warm sm:p-5">
       <div className="flex items-center justify-between">
         <button
           type="button"

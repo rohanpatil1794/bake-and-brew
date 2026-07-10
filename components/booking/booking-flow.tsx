@@ -422,7 +422,7 @@ function Step({
         </span>
         {title}
       </h2>
-      <div className="mt-5 pl-12">{children}</div>
+      <div className="mt-5 pl-0 sm:pl-12">{children}</div>
     </section>
   );
 }
