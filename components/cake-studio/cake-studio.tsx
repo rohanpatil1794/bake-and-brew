@@ -60,7 +60,7 @@ export function CakeStudio() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[220px_1fr_320px]">
+    <div className="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)_320px]">
       {/* Step rail */}
       <nav aria-label="Design steps" className="hidden lg:block">
         <ol className="sticky top-32 space-y-1">
@@ -94,7 +94,7 @@ export function CakeStudio() {
       </nav>
 
       {/* Preview */}
-      <div className="order-first flex items-start justify-center lg:order-none lg:sticky lg:top-32 lg:self-start">
+      <div className="order-first flex min-w-0 items-start justify-center lg:order-none lg:sticky lg:top-32 lg:self-start">
         <CakePreview
           sizeIndex={studio.sizeIndex}
           shape={studio.shape}
@@ -106,7 +106,7 @@ export function CakeStudio() {
       </div>
 
       {/* Option panel */}
-      <div>
+      <div className="min-w-0">
         {/* Mobile step tabs */}
         <div className="mb-6 flex gap-1 overflow-x-auto lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {STEPS.map((s, i) => (
@@ -163,7 +163,7 @@ export function CakeStudio() {
       </div>
 
       {/* Sticky summary / price bar */}
-      <aside className="lg:sticky lg:top-32 lg:self-start">
+      <aside className="min-w-0 lg:sticky lg:top-32 lg:self-start">
         <div className="rounded-3xl border border-border-warm bg-surface p-6 shadow-warm">
           <h2 className="text-lg font-semibold text-espresso">Your creation</h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">{summary}</p>
