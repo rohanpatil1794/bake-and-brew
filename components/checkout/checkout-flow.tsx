@@ -111,7 +111,7 @@ export function CheckoutFlow() {
 
   return (
     <>
-      <h1 className="text-center text-5xl font-semibold text-espresso">
+      <h1 className="text-center text-4xl font-semibold text-espresso sm:text-5xl">
         Check<span className="text-primary">out</span>
       </h1>
       <p className="mx-auto mt-4 mb-12 max-w-md text-center text-muted">

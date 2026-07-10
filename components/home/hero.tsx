@@ -46,7 +46,7 @@ export function Hero() {
 
           <motion.h1
             variants={rise}
-            className="mt-6 text-5xl leading-tight font-semibold text-espresso sm:text-6xl"
+            className="mt-6 text-4xl leading-tight font-semibold text-espresso sm:text-5xl md:text-6xl"
           >
             Baked with <span className="text-primary">love</span>,<br />
             brewed with <span className="text-secondary">care</span>.
