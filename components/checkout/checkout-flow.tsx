@@ -119,7 +119,11 @@ export function CheckoutFlow() {
       </p>
 
       <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className="min-w-0 space-y-5"
+        >
           <div>
             <label htmlFor="name" className="text-sm font-semibold text-espresso">
               Full name
@@ -241,7 +245,7 @@ export function CheckoutFlow() {
           </button>
         </form>
 
-        <aside className="h-fit rounded-3xl border border-border-warm bg-surface p-6 shadow-warm">
+        <aside className="h-fit min-w-0 rounded-3xl border border-border-warm bg-surface p-6 shadow-warm">
           <h2 className="text-lg font-semibold text-espresso">Order summary</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {items.map((item) => (
