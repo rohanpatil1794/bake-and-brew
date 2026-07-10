@@ -25,14 +25,14 @@ export function Navbar() {
     <header className="fixed top-4 left-4 right-4 z-40">
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border-warm bg-surface/90 px-5 py-3 shadow-warm backdrop-blur"
+        className="mx-auto flex max-w-6xl items-center justify-between gap-2 rounded-full border border-border-warm bg-surface/90 px-4 py-3 shadow-warm backdrop-blur sm:px-5"
       >
         <Link
           href="/"
-          className="flex items-center gap-2 font-serif text-xl font-semibold text-espresso"
+          className="flex min-w-0 shrink items-center gap-2 font-serif text-lg font-semibold whitespace-nowrap text-espresso sm:text-xl"
         >
-          <Croissant className="h-6 w-6 text-primary" aria-hidden />
-          {site.name}
+          <Croissant className="h-6 w-6 shrink-0 text-primary" aria-hidden />
+          <span className="truncate">{site.name}</span>
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -60,7 +60,7 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={openDrawer}
