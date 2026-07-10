@@ -93,7 +93,7 @@ export function CakeDetailModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.96, y: prefersReducedMotion ? 0 : 16 }}
         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-        className="relative grid max-h-[90vh] w-full max-w-3xl grid-rows-[auto_1fr] overflow-hidden rounded-3xl border border-border-warm bg-surface shadow-warm-lg md:grid-cols-2 md:grid-rows-1"
+        className="relative grid max-h-[90vh] w-full max-w-3xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-3xl border border-border-warm bg-surface shadow-warm-lg sm:grid-cols-2 sm:grid-rows-1"
       >
         <button
           type="button"
@@ -104,13 +104,13 @@ export function CakeDetailModal({
           <X className="h-5 w-5" aria-hidden />
         </button>
 
-        <div className="flex items-center justify-center bg-sand/60 p-6 md:p-10">
+        <div className="flex min-h-0 items-center justify-center bg-sand/60 p-6 sm:p-8 md:p-10">
           <motion.div layoutId={`cake-art-${cake.slug}`} className="w-full max-w-xs">
             <CakeArt art={cake.art} title={cake.name} className="h-auto w-full" />
           </motion.div>
         </div>
 
-        <div className="overflow-y-auto p-6 md:p-8">
+        <div className="min-h-0 overflow-y-auto p-6 md:p-8">
           <h2 className="pr-8 text-3xl font-semibold text-espresso">{cake.name}</h2>
           <p className="mt-1 text-sm font-medium text-secondary">{cake.tagline}</p>
           <p className="mt-4 text-sm leading-relaxed text-muted">{cake.description}</p>
