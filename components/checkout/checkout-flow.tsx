@@ -118,7 +118,7 @@ export function CheckoutFlow() {
         Almost there — tell us where to bring it.
       </p>
 
-      <div className="grid gap-10 md:grid-cols-[1fr_320px]">
+      <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_320px]">
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
           <div>
             <label htmlFor="name" className="text-sm font-semibold text-espresso">

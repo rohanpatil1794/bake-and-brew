@@ -158,7 +158,7 @@ export function BookingFlow() {
   ].filter(Boolean);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1fr_300px]">
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
       <div className="space-y-12">
         {/* Step 1 — party size */}
         <Step number={1} title="How many of you?" done={partySize !== null}>
