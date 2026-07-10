@@ -31,7 +31,7 @@ export function Hero() {
         className="absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-caramel/20 blur-3xl"
       />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 pt-40 pb-24 lg:grid-cols-2 lg:pt-48">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-28 pb-24 sm:px-6 sm:pt-40 lg:grid-cols-2 lg:pt-48">
         <motion.div
           variants={prefersReducedMotion ? undefined : container}
           initial="hidden"

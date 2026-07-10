@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CakeStudioPage() {
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-40 pb-32">
+    <section className="mx-auto max-w-6xl px-5 pt-28 sm:px-6 sm:pt-40 pb-32">
       <h1 className="text-center text-5xl font-semibold text-espresso">
         Cake <span className="text-primary">Studio</span>
       </h1>

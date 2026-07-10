@@ -12,7 +12,7 @@ export default async function MenuPage() {
   const categories = await getMenu();
 
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-40 pb-24">
+    <section className="mx-auto max-w-6xl px-5 pt-28 sm:px-6 sm:pt-40 pb-24">
       <h1 className="text-center text-5xl font-semibold text-espresso">
         The <span className="text-primary">Menu</span>
       </h1>

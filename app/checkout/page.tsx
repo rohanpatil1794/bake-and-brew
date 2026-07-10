@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CheckoutPage() {
   return (
-    <section className="mx-auto max-w-4xl px-6 pt-40 pb-24">
+    <section className="mx-auto max-w-4xl px-5 pt-28 sm:px-6 sm:pt-40 pb-24">
       <CheckoutFlow />
     </section>
   );

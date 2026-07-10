@@ -3,7 +3,7 @@ import { ArrowLeft, Croissant } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="mx-auto flex max-w-2xl flex-col items-center px-6 pt-48 pb-24 text-center">
+    <section className="mx-auto flex max-w-2xl flex-col items-center px-5 pt-32 sm:px-6 sm:pt-48 pb-24 text-center">
       <p className="font-serif text-8xl font-semibold text-primary">404</p>
       <span className="mt-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-sand text-primary">
         <Croissant className="h-8 w-8" aria-hidden />

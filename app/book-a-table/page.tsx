@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function BookATablePage() {
   return (
-    <section className="mx-auto max-w-5xl px-6 pt-40 pb-24">
+    <section className="mx-auto max-w-5xl px-5 pt-28 sm:px-6 sm:pt-40 pb-24">
       <h1 className="text-center text-5xl font-semibold text-espresso">
         Book a <span className="text-primary">Table</span>
       </h1>
