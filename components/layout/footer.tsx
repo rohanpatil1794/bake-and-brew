@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Clock, Croissant, MapPin, Phone } from "lucide-react";
 import { site } from "@/lib/site";
+import { NewsletterForm } from "@/components/layout/newsletter-form";
 
 // Brand marks (Simple Icons paths) — lucide-react no longer ships brand logos
 const brandPaths: Record<string, string> = {
@@ -22,6 +23,11 @@ function BrandIcon({ name }: { name: string }) {
 export function Footer() {
   return (
     <footer className="mt-24 bg-espresso text-cream">
+      <div className="mx-auto max-w-6xl border-b border-cream/10 px-6 py-12">
+        <div className="mx-auto max-w-md text-center">
+          <NewsletterForm />
+        </div>
+      </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="flex items-center gap-2 font-serif text-2xl font-semibold">
