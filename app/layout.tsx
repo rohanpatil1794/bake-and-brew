@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { StructuredData } from "@/components/structured-data";
+import { BackToTop } from "@/components/layout/back-to-top";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -89,6 +90,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CartDrawer />
+        <BackToTop />
       </body>
     </html>
   );
