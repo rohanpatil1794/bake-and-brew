@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { FeatureTeasers } from "@/components/home/feature-teasers";
+import { Testimonials } from "@/components/home/testimonials";
 import { Reveal } from "@/components/motion/reveal";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <div className="bg-sand/50">
         <FeatureTeasers />
       </div>
+      <Testimonials />
       <CtaBand />
     </>
   );
