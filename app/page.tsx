@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { FeatureTeasers } from "@/components/home/feature-teasers";
+import { Stats } from "@/components/home/stats";
 import { Testimonials } from "@/components/home/testimonials";
 import { Reveal } from "@/components/motion/reveal";
 
@@ -9,9 +10,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="bg-sand/50">
-        <FeatureTeasers />
-      </div>
+      <Stats />
+      <FeatureTeasers />
       <Testimonials />
       <CtaBand />
     </>
