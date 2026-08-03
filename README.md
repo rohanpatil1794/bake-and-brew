@@ -22,6 +22,14 @@ An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cake
 - [x] Custom photo-print cake with live draggable preview *(milestone ⑤)*
 - [x] Cake Studio — interactive layer-by-layer cake configurator *(milestone ⑥)*
 
+### Conversion & polish
+
+- Home page: animated stats band, customer testimonials, and an FAQ accordion
+- Newsletter signup and social links in the footer
+- Skeleton loading states, a branded 404, and a global error boundary
+- SEO: Open Graph image, sitemap, robots, plus `Bakery` and `FAQPage` JSON-LD
+- Floating back-to-top button and a keyboard skip-to-content link
+
 ## Tech Stack
 
 | Layer | Choice |
