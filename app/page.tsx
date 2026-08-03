@@ -4,6 +4,7 @@ import { Hero } from "@/components/home/hero";
 import { FeatureTeasers } from "@/components/home/feature-teasers";
 import { Stats } from "@/components/home/stats";
 import { Testimonials } from "@/components/home/testimonials";
+import { Faq } from "@/components/home/faq";
 import { Reveal } from "@/components/motion/reveal";
 
 export default function Home() {
@@ -13,6 +14,9 @@ export default function Home() {
       <Stats />
       <FeatureTeasers />
       <Testimonials />
+      <div className="bg-sand/50">
+        <Faq />
+      </div>
       <CtaBand />
     </>
   );
