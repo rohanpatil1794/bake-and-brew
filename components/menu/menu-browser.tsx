@@ -1,12 +1,33 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
-import type { MenuCategory } from "@/lib/data/menu";
+import { Leaf, Sprout, Star } from "lucide-react";
+import type { DietaryTag, MenuCategory } from "@/lib/data/menu";
 import { MenuItemRow } from "@/components/menu/menu-item-row";
 import { staggerContainer, staggerItem } from "@/components/motion/reveal";
 
+const dietaryFilters: { value: DietaryTag; label: string; icon: typeof Leaf }[] = [
+  { value: "veg", label: "Veg", icon: Leaf },
+  { value: "vegan", label: "Vegan", icon: Sprout },
+  { value: "bestseller", label: "Bestsellers", icon: Star },
+];
+
 export function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
+  const [filter, setFilter] = useState<DietaryTag | null>(null);
+  const visibleCategories = useMemo(
+    () =>
+      (filter
+        ? categories
+            .map((cat) => ({
+              ...cat,
+              items: cat.items.filter((item) => item.tags.includes(filter)),
+            }))
+            .filter((cat) => cat.items.length > 0)
+        : categories),
+    [categories, filter],
+  );
+
   const [active, setActive] = useState(categories[0]?.id);
   const observerLock = useRef(false);
 
@@ -21,12 +42,12 @@ export function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
       },
       { rootMargin: "-35% 0px -60% 0px" },
     );
-    for (const cat of categories) {
+    for (const cat of visibleCategories) {
       const el = document.getElementById(cat.id);
       if (el) observer.observe(el);
     }
     return () => observer.disconnect();
-  }, [categories]);
+  }, [visibleCategories]);
 
   const scrollToCategory = (id: string) => {
     setActive(id);
@@ -38,12 +59,46 @@ export function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
 
   return (
     <>
+      <div className="mb-6 flex flex-wrap justify-center gap-2">
+        <button
+          type="button"
+          onClick={() => setFilter(null)}
+          aria-pressed={filter === null}
+          className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+            filter === null
+              ? "border-primary bg-primary text-cream"
+              : "border-border-warm bg-surface text-muted hover:border-primary hover:text-primary"
+          }`}
+        >
+          Everything
+        </button>
+        {dietaryFilters.map((f) => {
+          const isOn = filter === f.value;
+          return (
+            <button
+              key={f.value}
+              type="button"
+              onClick={() => setFilter(isOn ? null : f.value)}
+              aria-pressed={isOn}
+              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                isOn
+                  ? "border-primary bg-primary text-cream"
+                  : "border-border-warm bg-surface text-muted hover:border-primary hover:text-primary"
+              }`}
+            >
+              <f.icon className="h-4 w-4" aria-hidden />
+              {f.label}
+            </button>
+          );
+        })}
+      </div>
+
       <div className="sticky top-24 z-30 -mx-2 mb-10">
         <nav
           aria-label="Menu categories"
           className="mx-auto flex max-w-fit gap-1 overflow-x-auto rounded-full border border-border-warm bg-surface/95 p-1.5 shadow-warm backdrop-blur [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {categories.map((cat) => {
+          {visibleCategories.map((cat) => {
             const isActive = cat.id === active;
             return (
               <button
@@ -70,7 +125,7 @@ export function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
       </div>
 
       <div className="space-y-16">
-        {categories.map((cat) => (
+        {visibleCategories.map((cat) => (
           <section
             key={cat.id}
             id={cat.id}
