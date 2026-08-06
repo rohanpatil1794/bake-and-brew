@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -9,6 +9,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowLeft, LoaderCircle, ShoppingBag } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import { computeDeliveryFee, useCart, useCartTotal } from "@/lib/store/cart";
+import { useMounted } from "@/lib/use-mounted";
 
 const deliverySlots = [
   "As soon as possible",
@@ -43,8 +44,7 @@ export function CheckoutFlow() {
   const clear = useCart((s) => s.clear);
   const subtotal = useCartTotal();
   const [order, setOrder] = useState<PlacedOrder | null>(null);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const deliveryFee = computeDeliveryFee(subtotal);
   const total = subtotal + deliveryFee;

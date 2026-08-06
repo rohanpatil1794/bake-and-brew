@@ -6,6 +6,7 @@ import {
   motion,
   useInView,
   useMotionValue,
+  useMotionValueEvent,
   useReducedMotion,
   useTransform,
 } from "motion/react";
@@ -31,21 +32,20 @@ function Counter({
   const prefersReducedMotion = useReducedMotion();
   const count = useMotionValue(0);
   const rounded = useTransform(count, (v) => v.toFixed(decimals));
-  const [display, setDisplay] = useState(prefersReducedMotion ? value.toFixed(decimals) : "0");
+  const [display, setDisplay] = useState("0");
+
+  // Drive the text from the motion value (not a raw setState-in-effect)
+  useMotionValueEvent(rounded, "change", (v) => setDisplay(v));
 
   useEffect(() => {
     if (!play) return;
     if (prefersReducedMotion) {
-      setDisplay(value.toFixed(decimals));
+      count.set(value);
       return;
     }
-    const unsub = rounded.on("change", (v) => setDisplay(v));
     const controls = animate(count, value, { duration: 1.4, ease: "easeOut" });
-    return () => {
-      controls.stop();
-      unsub();
-    };
-  }, [play, value, decimals, count, rounded, prefersReducedMotion]);
+    return () => controls.stop();
+  }, [play, value, count, prefersReducedMotion]);
 
   return (
     <span className="font-serif text-4xl font-semibold text-primary sm:text-5xl">

@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Croissant, Menu, ShoppingBag, X } from "lucide-react";
 import { site } from "@/lib/site";
 import { useCartCount, useCartDrawer } from "@/lib/store/cart";
+import { useMounted } from "@/lib/use-mounted";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -16,10 +17,7 @@ export function Navbar() {
 
   // Cart count is read after mount to avoid hydration mismatch with persisted state
   const count = useCartCount();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => setOpen(false), [pathname]);
+  const mounted = useMounted();
 
   return (
     <header className="fixed top-4 left-4 right-4 z-40">
@@ -115,6 +113,7 @@ export function Navbar() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={() => setOpen(false)}
                     className={`block rounded-2xl px-4 py-3 font-medium transition-colors duration-200 ${
                       pathname.startsWith(item.href)
                         ? "bg-sand text-primary"
