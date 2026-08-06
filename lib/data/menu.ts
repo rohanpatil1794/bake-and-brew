@@ -215,3 +215,20 @@ const menu: MenuCategory[] = [
 export async function getMenu(): Promise<MenuCategory[]> {
   return menu;
 }
+
+/**
+ * Keep only items carrying `tag`, dropping categories left with none.
+ * A null tag returns the categories unchanged.
+ */
+export function filterCategoriesByTag(
+  categories: MenuCategory[],
+  tag: DietaryTag | null,
+): MenuCategory[] {
+  if (!tag) return categories;
+  return categories
+    .map((category) => ({
+      ...category,
+      items: category.items.filter((item) => item.tags.includes(tag)),
+    }))
+    .filter((category) => category.items.length > 0);
+}

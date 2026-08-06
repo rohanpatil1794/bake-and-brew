@@ -3,7 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Leaf, Sprout, Star } from "lucide-react";
-import type { DietaryTag, MenuCategory } from "@/lib/data/menu";
+import {
+  filterCategoriesByTag,
+  type DietaryTag,
+  type MenuCategory,
+} from "@/lib/data/menu";
 import { MenuItemRow } from "@/components/menu/menu-item-row";
 import { staggerContainer, staggerItem } from "@/components/motion/reveal";
 
@@ -16,15 +20,7 @@ const dietaryFilters: { value: DietaryTag; label: string; icon: typeof Leaf }[] 
 export function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
   const [filter, setFilter] = useState<DietaryTag | null>(null);
   const visibleCategories = useMemo(
-    () =>
-      (filter
-        ? categories
-            .map((cat) => ({
-              ...cat,
-              items: cat.items.filter((item) => item.tags.includes(filter)),
-            }))
-            .filter((cat) => cat.items.length > 0)
-        : categories),
+    () => filterCategoriesByTag(categories, filter),
     [categories, filter],
   );
 
