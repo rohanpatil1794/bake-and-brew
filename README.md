@@ -10,6 +10,7 @@ An artisan bakery & cafe website — hand-crafted cakes, custom photo-print cake
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Motion](https://img.shields.io/badge/Motion-v12-FF4D8D?logo=framer&logoColor=white)
 ![Deployed on Vercel](https://img.shields.io/badge/Vercel-live-000000?logo=vercel&logoColor=white)
+[![CI](https://github.com/rohanpatil1794/bake-and-brew/actions/workflows/ci.yml/badge.svg)](https://github.com/rohanpatil1794/bake-and-brew/actions/workflows/ci.yml)
 
 **Design language:** light "Warm Artisan" theme — warm browns on cream, Lora + Raleway typography, and Framer Motion throughout. Full design rationale in [docs/DESIGN_PROPOSAL.md](docs/DESIGN_PROPOSAL.md).
 
@@ -49,6 +50,18 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Testing
+
+Pure logic — cart operations, delivery-fee rules, cake-studio pricing, the
+menu filter, booking availability, catalog integrity, and formatting — is
+covered by [Vitest](https://vitest.dev). Every push and PR runs lint, tests,
+and a production build via GitHub Actions.
+
+```bash
+npm test         # run the suite once
+npm run test:watch
+```
 
 ## Responsive
 
