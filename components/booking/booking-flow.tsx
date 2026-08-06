@@ -15,27 +15,11 @@ import {
   Phone,
 } from "lucide-react";
 import { site } from "@/lib/site";
+import { SLOT_GROUPS, isSlotBooked } from "@/lib/booking";
 import { Calendar } from "@/components/booking/calendar";
 import { staggerContainer, staggerItem } from "@/components/motion/reveal";
 
 const PARTY_SIZES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
-
-const SLOT_GROUPS = [
-  { label: "Lunch", slots: ["12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM"] },
-  {
-    label: "Dinner",
-    slots: ["6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"],
-  },
-] as const;
-
-/** Deterministic mock availability — replaced by the reservations API later. */
-function isSlotBooked(dateKey: string, slot: string): boolean {
-  let hash = 0;
-  for (const ch of `${dateKey}|${slot}`) {
-    hash = (hash * 31 + ch.charCodeAt(0)) | 0;
-  }
-  return Math.abs(hash) % 4 === 0;
-}
 
 const occasions = [
   "Just a meal",
