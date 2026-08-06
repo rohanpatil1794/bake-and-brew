@@ -8,12 +8,7 @@ import { z } from "zod";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowLeft, LoaderCircle, ShoppingBag } from "lucide-react";
 import { formatPrice } from "@/lib/format";
-import {
-  DELIVERY_FEE,
-  FREE_DELIVERY_ABOVE,
-  useCart,
-  useCartTotal,
-} from "@/lib/store/cart";
+import { computeDeliveryFee, useCart, useCartTotal } from "@/lib/store/cart";
 
 const deliverySlots = [
   "As soon as possible",
@@ -51,8 +46,7 @@ export function CheckoutFlow() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const deliveryFee =
-    subtotal === 0 || subtotal >= FREE_DELIVERY_ABOVE ? 0 : DELIVERY_FEE;
+  const deliveryFee = computeDeliveryFee(subtotal);
   const total = subtotal + deliveryFee;
 
   const {

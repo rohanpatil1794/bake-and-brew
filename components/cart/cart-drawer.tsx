@@ -6,8 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Minus, Plus, ShoppingBag, Trash2, Truck, X } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import {
-  DELIVERY_FEE,
   FREE_DELIVERY_ABOVE,
+  computeDeliveryFee,
   useCart,
   useCartDrawer,
   useCartTotal,
@@ -21,8 +21,7 @@ export function CartDrawer() {
   const subtotal = useCartTotal();
   const prefersReducedMotion = useReducedMotion();
 
-  const deliveryFee =
-    subtotal === 0 || subtotal >= FREE_DELIVERY_ABOVE ? 0 : DELIVERY_FEE;
+  const deliveryFee = computeDeliveryFee(subtotal);
 
   useEffect(() => {
     if (!open) return;

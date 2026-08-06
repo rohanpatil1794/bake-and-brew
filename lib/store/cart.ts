@@ -69,3 +69,12 @@ export const useCartDrawer = create<CartDrawerState>()((set) => ({
 
 export const DELIVERY_FEE = 49;
 export const FREE_DELIVERY_ABOVE = 999;
+
+/**
+ * Delivery fee for a given subtotal: free for an empty cart (nothing to
+ * deliver) and for orders at or above the free-delivery threshold.
+ */
+export function computeDeliveryFee(subtotal: number): number {
+  if (subtotal <= 0 || subtotal >= FREE_DELIVERY_ABOVE) return 0;
+  return DELIVERY_FEE;
+}
