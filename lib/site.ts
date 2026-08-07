@@ -7,6 +7,7 @@ export const site = {
     { label: "Cake Studio", href: "/cake-studio" },
     { label: "Photo Cakes", href: "/photo-cake" },
     { label: "Book a Table", href: "/book-a-table" },
+    { label: "About", href: "/about" },
   ],
   hours: [
     { days: "Mon – Fri", time: "7:00 AM – 9:00 PM" },
