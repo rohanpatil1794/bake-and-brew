@@ -82,6 +82,12 @@ export function Navbar() {
             </AnimatePresence>
           </button>
 
+          <span aria-live="polite" className="sr-only">
+            {mounted
+              ? `${count} ${count === 1 ? "item" : "items"} in cart`
+              : ""}
+          </span>
+
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
