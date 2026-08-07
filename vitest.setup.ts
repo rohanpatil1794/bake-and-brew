@@ -6,21 +6,23 @@ afterEach(() => cleanup());
 
 // jsdom has no IntersectionObserver; framer-motion's whileInView needs it.
 // Stub it so scroll-reveal components render in tests.
-if (!("IntersectionObserver" in window)) {
-  class MockIntersectionObserver {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-    takeRecords() {
-      return [];
-    }
-    root = null;
-    rootMargin = "";
-    thresholds = [];
+class MockIntersectionObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+  takeRecords() {
+    return [];
   }
-  window.IntersectionObserver =
-    MockIntersectionObserver as unknown as typeof IntersectionObserver;
-  globalThis.IntersectionObserver =
+  root = null;
+  rootMargin = "";
+  thresholds = [];
+}
+
+const globalWithIO = globalThis as typeof globalThis & {
+  IntersectionObserver?: typeof IntersectionObserver;
+};
+if (!globalWithIO.IntersectionObserver) {
+  globalWithIO.IntersectionObserver =
     MockIntersectionObserver as unknown as typeof IntersectionObserver;
 }
 
