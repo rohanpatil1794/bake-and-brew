@@ -53,10 +53,15 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Testing
 
-Pure logic — cart operations, delivery-fee rules, cake-studio pricing, the
-menu filter, booking availability, catalog integrity, and formatting — is
-covered by [Vitest](https://vitest.dev). Every push and PR runs lint, tests,
-and a production build via GitHub Actions.
+54 tests across two layers, run with [Vitest](https://vitest.dev):
+
+- **Logic** — cart operations, delivery-fee rules, cake-studio pricing, the
+  menu filter, booking availability, catalog integrity, and formatting.
+- **Components** ([React Testing Library](https://testing-library.com)) —
+  add-to-cart and quantity steppers, the FAQ accordion, newsletter validation,
+  the cart drawer totals, and page rendering.
+
+Every push and PR runs lint, tests, and a production build via GitHub Actions.
 
 ```bash
 npm test         # run the suite once
